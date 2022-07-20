@@ -6,7 +6,7 @@ const serverPort = express();
 const server = http.createServer(serverPort);
 eventEmitter.on("startServer", async () => {
   try {
-    server.listen(3000, () => {
+    server.listen(process.env.PORT || 3000, () => {
       console.log("Port running in port 3000.....");
     });
   } catch (error: any) {
