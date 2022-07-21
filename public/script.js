@@ -72,7 +72,7 @@ btnVideo.addEventListener('click', () => {
 
     //console.log(isVideoMuted)
 })
-var socket = io("localhost:3000/");
+var socket = io("https://hdm2-chat-real-time.herokuapp.com/");
 // socket.listeners("localhost:3000/" + ROOM_ID, () => {
 //     console.log("connected port 3000");
 // })
@@ -123,8 +123,8 @@ async function getMedia() {
         stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         videoClient.srcObject = stream;
         let myPeer = new Peer(undefined, {
-            host: '/',
-            port: '3001'
+            host: 'https://peer-server-hieudm2.herokuapp.com',
+            port: '443'
         })
         myPeer.on('open', (id) => {
             const video1 = document.createElement("video");
